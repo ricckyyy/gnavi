@@ -1,3 +1,6 @@
+<!-- このプルリクエストは日本語で記述してください -->
+<!-- Please write this pull request in Japanese -->
+
 ## 概要
 <!-- 変更内容の概要を簡潔に記述してください -->
 
