@@ -123,9 +123,24 @@ gnavi/
 
 ## 注意事項
 
+- **重要**: `restaurants_searcher.php`にハードコードされているAPIキーは使用前に必ず変更してください
 - APIキーは公開リポジトリにコミットしないでください
+  - 環境変数や設定ファイル（`.gitignore`に追加）を使用することを推奨します
 - ぐるなびAPIには利用制限があります。詳細は[公式ドキュメント](https://api.gnavi.co.jp/api/manual/)を参照してください
 - 検索条件は`restaurants_searcher.php`内で自由にカスタマイズできます
+
+### セキュリティのベストプラクティス
+
+APIキーを安全に管理するために、以下のような方法を検討してください：
+
+```php
+// 環境変数から読み込む例
+$KEYID = getenv('GNAVI_API_KEY') ?: "デフォルト値";
+
+// または設定ファイルから読み込む例（config.phpを.gitignoreに追加）
+require_once 'config.php';
+$KEYID = API_KEY;
+```
 
 ## ライセンス
 
