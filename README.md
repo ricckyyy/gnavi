@@ -43,9 +43,13 @@ composer install
 3. ぐるなびAPIキーを取得:
    - [ぐるなびAPI](https://api.gnavi.co.jp/)から無料でAPIキーを取得できます
 
-4. `restaurants_searcher.php`の設定を編集:
+4. **重要**: APIキーの設定
+   - ⚠️ **絶対に実際のAPIキーをGitにコミットしないでください**
+   - セキュリティのベストプラクティスについては下記の「セキュリティのベストプラクティス」セクションを参照してください
+   
+   テスト目的でのみ、`restaurants_searcher.php`の設定を一時的に編集:
 ```php
-$KEYID = "YOUR_API_KEY_HERE";  // APIキーを設定
+$KEYID = "YOUR_API_KEY_HERE";  // APIキーを設定（本番では環境変数を使用）
 $PREF = "PREF13";              // 都道府県コード（PREF13は東京都）
 $FREEWORD = "渋谷駅";          // 検索キーワード
 ```
@@ -133,19 +137,33 @@ gnavi/
 
 APIキーを安全に管理するために、以下のような方法を検討してください：
 
+**方法1: 環境変数から読み込む（推奨）**
 ```php
-// 方法1: 環境変数から読み込む（推奨）
 $KEYID = getenv('GNAVI_API_KEY');
 if (!$KEYID) {
     die("Error: GNAVI_API_KEY environment variable is not set\n");
 }
+```
 
-// 方法2: 設定ファイルから読み込む（config.phpを.gitignoreに追加）
-// config.php:
-// <?php
-// define('GNAVI_API_KEY', 'your_actual_api_key_here');
-// ?>
+使用方法：
+```bash
+export GNAVI_API_KEY="your_actual_api_key_here"
+php restaurants_searcher.php
+```
 
+**方法2: 設定ファイルから読み込む**
+
+1. `config.php`を作成：
+```php
+<?php
+define('GNAVI_API_KEY', 'your_actual_api_key_here');
+?>
+```
+
+2. `.gitignore`に`config.php`を追加
+
+3. `restaurants_searcher.php`で使用：
+```php
 require_once 'config.php';
 $KEYID = GNAVI_API_KEY;
 ```
