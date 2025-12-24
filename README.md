@@ -134,12 +134,20 @@ gnavi/
 APIキーを安全に管理するために、以下のような方法を検討してください：
 
 ```php
-// 環境変数から読み込む例
-$KEYID = getenv('GNAVI_API_KEY') ?: "デフォルト値";
+// 方法1: 環境変数から読み込む（推奨）
+$KEYID = getenv('GNAVI_API_KEY');
+if (!$KEYID) {
+    die("Error: GNAVI_API_KEY environment variable is not set\n");
+}
 
-// または設定ファイルから読み込む例（config.phpを.gitignoreに追加）
+// 方法2: 設定ファイルから読み込む（config.phpを.gitignoreに追加）
+// config.php:
+// <?php
+// define('GNAVI_API_KEY', 'your_actual_api_key_here');
+// ?>
+
 require_once 'config.php';
-$KEYID = API_KEY;
+$KEYID = GNAVI_API_KEY;
 ```
 
 ## ライセンス
