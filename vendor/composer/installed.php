@@ -3,7 +3,7 @@
         'name' => '__root__',
         'pretty_version' => 'dev-copilot/add-unit-tests-for-pull-requests',
         'version' => 'dev-copilot/add-unit-tests-for-pull-requests',
-        'reference' => 'b85ceb90257476d37d700f9a23c4f7aaddb711d1',
+        'reference' => 'af374a8ebcc159f1e4195dddfe8345fcc153c7a2',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         '__root__' => array(
             'pretty_version' => 'dev-copilot/add-unit-tests-for-pull-requests',
             'version' => 'dev-copilot/add-unit-tests-for-pull-requests',
-            'reference' => 'b85ceb90257476d37d700f9a23c4f7aaddb711d1',
+            'reference' => 'af374a8ebcc159f1e4195dddfe8345fcc153c7a2',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
