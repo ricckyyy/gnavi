@@ -6,7 +6,15 @@ require 'vendor/autoload.php';
 use GuzzleHttp\Client;
 
 #初期設定
-$KEYID = "88fe66b2a50ce7ab5ef17c119bdb85fb";
+# APIキーを環境変数から読み込む（セキュリティのベストプラクティス）
+$KEYID = getenv('GNAVI_API_KEY');
+if (!$KEYID) {
+    die("Error: GNAVI_API_KEY environment variable is not set\n" .
+        "Please set it using:\n" .
+        "  Linux/Mac: export GNAVI_API_KEY=\"your_api_key_here\"\n" .
+        "  Windows:   set GNAVI_API_KEY=your_api_key_here\n");
+}
+
 $HIT_PER_PAGE = 100;
 $PREF = "PREF13";
 $FREEWORD_CONDITION = 1;

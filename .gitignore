@@ -1,0 +1,21 @@
+# Composer dependencies
+/vendor/
+
+# Environment configuration
+config.php
+.env
+.env.local
+
+# CSV output files
+restaurants_list.csv
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
