@@ -1,4 +1,8 @@
 {
+    "name": "ricckyyy/gnavi",
+    "description": "Gurunavi API client and PHP learning project",
+    "type": "project",
+    "license": "proprietary",
     "require": {
         "guzzlehttp/guzzle": "^7.2"
     },
