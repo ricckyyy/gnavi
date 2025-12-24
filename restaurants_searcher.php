@@ -10,7 +10,9 @@ use GuzzleHttp\Client;
 $KEYID = getenv('GNAVI_API_KEY');
 if (!$KEYID) {
     die("Error: GNAVI_API_KEY environment variable is not set\n" .
-        "Please set it using: export GNAVI_API_KEY=\"your_api_key_here\"\n");
+        "Please set it using:\n" .
+        "  Linux/Mac: export GNAVI_API_KEY=\"your_api_key_here\"\n" .
+        "  Windows:   set GNAVI_API_KEY=your_api_key_here\n");
 }
 
 $HIT_PER_PAGE = 100;
